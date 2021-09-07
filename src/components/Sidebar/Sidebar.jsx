@@ -9,6 +9,8 @@ import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import WorkIcon from '@material-ui/icons/Work';
 import EventIcon from '@material-ui/icons/Event';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { Users } from '../../dummyData';
+import CloseFriends from '../CloseFriends/CloseFriends';
 import "./Sidebar.style.css"
 export default function Sidebar() {
     return (
@@ -59,22 +61,15 @@ export default function Sidebar() {
                 <button className="sidebarButton">Show More</button>
                 <hr className="sidebarHr"/>
                 <ul className="sidebarFriendList">
-                    <li className="sidebarFreind">
-                        <img className="sidebarFreindImg" src="/assets/person/2.jpeg" alt="" />
-                        <span className="sidebarFreindName">Sajjad</span>
-                    </li>
-                    <li className="sidebarFreind">
-                        <img className="sidebarFreindImg" src="/assets/person/2.jpeg" alt="" />
-                        <span className="sidebarFreindName">Sajjad</span>
-                    </li>
-                    <li className="sidebarFreind">
-                        <img className="sidebarFreindImg" src="/assets/person/2.jpeg" alt="" />
-                        <span className="sidebarFreindName">Sajjad</span>
-                    </li>
-                    <li className="sidebarFreind">
-                        <img className="sidebarFreindImg" src="/assets/person/2.jpeg" alt="" />
-                        <span className="sidebarFreindName">Sajjad</span>
-                    </li>
+                    {
+                        Users.map((user)=>(
+                             <CloseFriends
+                                key={user.id}
+                                user={user}
+                             />
+                         ))
+                    }
+                   
                 </ul>
             </div>
         </div>
