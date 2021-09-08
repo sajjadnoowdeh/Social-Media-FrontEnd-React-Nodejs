@@ -2,12 +2,16 @@ import React from "react"
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { Chat, Person ,} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 import "./TopBar.style.css"
 export default function TopBar() {
     return (
         <div className="topBarContainer">
         <div className="topbarLeft">
+          <Link to="/">
+
           <span className="logo">Social Media</span>
+          </Link>
         </div>
         <div className="topbarCenter">
           <div className="searchbar">
