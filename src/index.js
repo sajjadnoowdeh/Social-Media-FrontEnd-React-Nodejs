@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
-
-
+import {Suspense} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Spinner} from "react-bootstrap"
+import "./index.css"
 ReactDOM.render(
-  <React.StrictMode>
+  <Suspense fallback={<div className="spinner-load">
+    <Spinner animation="border" role="status">
+  <span className="visually-hidden">Loading...</span>
+</Spinner>
+  </div>}>
+  
     <App />
-  </React.StrictMode>,
+  </Suspense>,
+
+
   document.getElementById('root')
 );
 
