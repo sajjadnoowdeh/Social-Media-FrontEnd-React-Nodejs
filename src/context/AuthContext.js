@@ -1,22 +1,22 @@
+import React, { useReducer } from "react"
 import { createContext } from "react";
-import { AuthReducer } from "./AuthReducer";
-import React from "react"
-const intialState = {
+import { AuthReducerFunc } from "./AuthReducer";
+let intialState = {
   user: null,
   isFetching: false,
   error: false,
 };
 
 export const ContextAuth = createContext(intialState);
-
+   
 const ProviderAuth = ({ children }) => {
-  const [state, dispatch] = React.useReducer(AuthReducer, intialState);
+  const [state, dispatch] = useReducer(AuthReducerFunc, intialState);
   return (
     <ContextAuth.Provider
       value={{
-        user: state.user,
-        isFetching: state.isFetching,
-        error: state.error,
+        isFetching:state.isFetching,
+        user:state.user,
+        error:state.user,
         dispatch,
       }}
     >
