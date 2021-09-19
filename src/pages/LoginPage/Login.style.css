@@ -58,6 +58,9 @@
     cursor: pointer;
     color: white;
 }
+.loginBtn:disabled{
+    cursor: not-allowed;
+}
 .loginForget{
     text-align: center;
     color: #1775ee;

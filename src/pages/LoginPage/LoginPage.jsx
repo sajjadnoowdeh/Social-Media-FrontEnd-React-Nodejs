@@ -1,8 +1,10 @@
 import React from 'react'
 import { useRef } from 'react'
 import { useContext } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { ContextAuth } from '../../context/AuthContext';
-import {loginCall} from "../../context/AuthActions"
+import {loignCall} from "../../apiCalls"
+
 import "./Login.style.css"
 export default function LoginPage() {
     const {user,isFetching,error,dispatch} = useContext(ContextAuth)
@@ -10,8 +12,8 @@ export default function LoginPage() {
     const password = useRef();
     const handleSubmit = (e)=>{
        e.preventDefault()
-       loginCall({email:email.current.value,password:password.current.value},dispatch)
-       console.log(password.current.value)
+       loignCall({email:email.current.value,password:password.current.value},dispatch)
+ 
     }
     return (
         <div className="login">
@@ -26,9 +28,9 @@ export default function LoginPage() {
                     <form className="loginBox" onSubmit={handleSubmit}>
                         <input placeholder="Email" ref={email} className="loginInput" type="email" />
                         <input placeholder="Password" ref={password} className="loginInput" type="password" />
-                        <button className="loginBtn">Sign up</button>
+                        <button className="loginBtn" disabled={isFetching}>{isFetching ? <CircularProgress size={"29px"}  /> : "Sign up"}</button>
                         <span className="loginForget">Forget Password?</span>
-                        <button className="loginRegisterBtn">Create Account</button>
+                        <button className="loginRegisterBtn">{isFetching ? <CircularProgress size={"29px"} /> : "Create Account"}</button>
                     </form>
                 </div>
             </div>
